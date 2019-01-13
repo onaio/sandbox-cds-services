@@ -76,11 +76,20 @@ function buildVaccineCardsForPatient(patient) {
 
   return vaccinesForDate.reduce(
     function (vaccineCards, vaxObj) {
-      receivedText = vaxObj.hasVx ? '' : 'not';
-      boxColor = vaxObj.hasVx ? '#00ff00' : '#ff0000';
+      let receivedText = vaxObj.hasVx ? '' : 'not';
+      let boxColor = vaxObj.hasVx ? '#00ff00' : '#ff0000';
+      let i = vaccineCards.length;
       return vaccineCards.concat([{
         summary: `${name} ${vaxObj.vaccine} Vaccine`,
-        detail: '<div><svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/1999/svg" version="1.0" width="20" height="20"><defs><rect id="path-1" x="0" y="0" width="20" height="20" rx="2"></rect></defs><g id="color/mds/level/veryHigh" fill="' + boxColor + '"><rect id="Rectangle-3" x="0" y="0" width="20" height="20"></rect></g></svg></div>' + `${name} has ${receivedText} received the ${vaxObj.vaccine} vaccine.`,
+        detail: `
+<div>
+  <svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/1999/svg" version="1.0" width="20" height="20">
+    <defs><rect id="vax-path-${i}" x="0" y="0" width="20" height="20" rx="2"></rect></defs>
+    <g id="color/mds/level/veryHigh" fill="${boxColor}">
+      <rect id="Vax-Rectangle-${i}" x="0" y="0" width="20" height="20"></rect>
+    </g>
+  </svg>
+</div>${name} has ${receivedText} received the ${vaxObj.vaccine} vaccine.`,
         source: {
           label: 'Eligible vaccines service',
         },
