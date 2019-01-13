@@ -2,8 +2,9 @@ const express = require('express');
 
 const router = express.Router();
 const serviceDefinitions = require('./service-definitions');
-const patientGreetingService = require('../services/patient-greeting');
+const eligibleVaccinesService = require('../services/eligible-vaccines');
 const cmsPriceCheck = require('../services/cms-price-check');
+const evalHighRisk = require('../services/eval-high-risk');
 
 // Discovery Endpoint
 router.get('/', (request, response) => {
@@ -14,7 +15,8 @@ router.get('/', (request, response) => {
 });
 
 // Routes to patient-greeting CDS Service
-router.use('/patient-greeting', patientGreetingService);
+router.use('/eligible-vaccines', eligibleVaccinesService);
 router.use('/cms-price-check', cmsPriceCheck);
+router.use('/eval-high-risk', evalHighRisk);
 
 module.exports = router;
