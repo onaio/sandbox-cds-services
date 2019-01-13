@@ -34,11 +34,13 @@ function retrievePatientResource(fhirServer, patientId, accessToken) {
 
 function buildCard(patient) {
   const name = patient.name[0].given[0];
+  const boxColor = '#0000ff';
   return {
     cards: [{
-      summary: `Now seeing: ${name}`,
+      summary: `Patient risk for: ${name}`,
+      detail: '<div><svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/1999/svg" version="1.0" width="400" height="20"><defs><rect id="path-1" x="0" y="0" width="400" height="20" rx="2"></rect></defs><g id="color/mds/level/veryHigh" fill="' + boxColor + '"><rect id="Rectangle-3" x="0" y="0" width="400" height="20"></rect></g></svg></div>',
       source: {
-        label: 'Patient greeting service',
+        label: 'Evaluate patient risk',
       },
       indicator: 'info',
     }],

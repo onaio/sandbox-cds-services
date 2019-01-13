@@ -23,7 +23,8 @@
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
-    "uuid": "^3.2.1"
+    "uuid": "^3.2.1",
+    "moment": "^2.23.0"
   },
   "devDependencies": {
     "axios-mock-adapter": "^1.15.0",

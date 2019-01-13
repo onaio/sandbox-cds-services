@@ -1,8 +1,8 @@
 [
   {
-    "id": "patient-greeting",
-    "title": "Patient greeting",
-    "description": "Display which patient the user is currently working with",
+    "id": "eligible-vaccines",
+    "title": "Eligible vaccines",
+    "description": "Display which vaccines the patient is eligible for",
     "hook": "patient-view",
     "prefetch": {
       "patient": "Patient/{{context.patientId}}"
@@ -13,5 +13,14 @@
     "title": "CMS Pricing Service",
     "description": "Determine if an authored prescription has a cheaper alternative to switch to and display pricing",
     "hook": "medication-prescribe"
+  },
+  {
+    "id": "eval-high-risk",
+    "title": "High Risk Evaluation Service",
+    "description": "Evaluate whether or not a patient is high risk",
+    "hook": "patient-view",
+    "prefetch": {
+      "patient": "Patient/{{context.patientId}}"
+    }
   }
 ]
